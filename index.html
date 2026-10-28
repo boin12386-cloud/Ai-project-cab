@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#101114" />
+  <meta name="description" content="BOIN — Your Creative World, All in One Place. Captions, prompts, creator tools and productivity in one beautiful workspace." />
+  <title>BOIN — Your Creative World, All in One Place</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="BOIN home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="brand-copy"><strong>BOIN<span>.</span></strong><small>Your creative world</small></span>
+      </a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="side-nav">
+        <button class="nav-item active" data-view="home"><span class="nav-icon">⌂</span> Home</button>
+        <button class="nav-item" data-view="all-tools"><span class="nav-icon">✣</span> Explore tools <span class="nav-count">24</span></button>
+        <button class="nav-item" data-view="favorites"><span class="nav-icon">♡</span> Favourites</button>
+        <button class="nav-item" data-view="vault"><span class="nav-icon">▤</span> Idea Vault</button>
+        <button class="nav-item" data-view="calendar"><span class="nav-icon">▦</span> Content calendar</button>
+        <button class="nav-item" data-view="checklist"><span class="nav-icon">☑</span> Project checklist</button>
+      </nav>
+      <div class="side-label side-label-spaced">YOUR CREATIVE SPACE</div>
+      <div class="mini-note"><span class="note-orb">✦</span><div><strong>Make room for ideas.</strong><p>Your next good idea is one click away.</p></div></div>
+      <div class="sidebar-bottom"><span class="status-dot"></span><span>Guest workspace</span><button class="icon-btn tiny" id="privacyBtn" aria-label="Privacy information" title="Privacy information">ⓘ</button></div>
+    </aside>
+
+    <main class="main-area" id="mainArea">
+      <header class="topbar">
+        <button class="icon-btn mobile-menu" id="mobileMenu" aria-label="Open navigation">☰</button>
+        <div class="crumb"><span class="crumb-muted">Workspace</span><span class="crumb-slash">/</span><strong id="pageCrumb">Home</strong></div>
+        <div class="top-actions">
+          <button class="search-trigger" id="topSearch"><span>⌕</span><span>Search tools...</span><kbd>⌘ K</kbd></button>
+          <button class="icon-btn" id="themeToggle" aria-label="Switch theme" title="Switch theme">☼</button>
+          <button class="profile-chip" id="profileBtn"><span class="avatar">B</span><span class="profile-name">My space</span><span class="chevron">⌄</span></button>
+        </div>
+      </header>
+
+      <div class="content-wrap">
+        <section class="view active" id="view-home">
+          <div class="hero">
+            <div class="hero-copy">
+              <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR CREATIVE WORLD, ALL IN ONE PLACE</div>
+              <h1>Make your next<br /><em>idea happen.</em></h1>
+              <p class="hero-desc">Captions, creative tools, AI prompts, social media ideas, and productivity utilities — all inside one beautiful workspace.</p>
+              <div class="hero-search"><span class="hero-search-icon">⌕</span><input id="heroSearch" type="search" placeholder="What would you like to create?" aria-label="Search creative tools" /><button id="heroSearchClear" class="clear-search" aria-label="Clear search" hidden>×</button><button class="search-submit" id="heroSearchGo" aria-label="Search">↗</button></div>
+              <div class="quick-actions"><span class="quick-label">QUICK CREATE</span><button data-tool="caption">✎ <span>Write a caption</span></button><button data-tool="prompt">✧ <span>AI prompt</span></button><button data-tool="reel">▶ <span>Reel script</span></button><button data-tool="fancy">Aa <span>Style text</span></button></div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="art-ring ring-one"></div><div class="art-ring ring-two"></div>
+              <div class="art-orb orb-orange"></div><div class="art-orb orb-peach"></div><div class="art-orb orb-cream"></div>
+              <div class="art-note note-caption"><span class="note-icon">✎</span><div><small>CAPTION STUDIO</small><strong>Words that connect.</strong></div><span class="note-arrow">↗</span></div>
+              <div class="art-note note-prompt"><span class="prompt-spark">✦</span><div><small>PROMPT LAB</small><strong>Imagine more.</strong></div></div>
+              <div class="art-floating">A little space<br />for big ideas.</div>
+            </div>
+          </div>
+          <div class="section-heading"><div><div class="eyebrow muted-eyebrow">YOUR TOOLKIT</div><h2>Explore your creative space</h2><p>Small tools. Big possibilities.</p></div><button class="text-link" data-view="all-tools">View all tools <span>↗</span></button></div>
+          <div class="category-row" id="categoryRow" aria-label="Filter tool categories"></div>
+          <div class="tool-grid" id="toolGrid"></div>
+          <div class="bottom-banner"><div class="banner-icon">✦</div><div><strong>Good ideas deserve a home.</strong><p>Save the sparks, shape the plan, and keep creating.</p></div><button class="btn btn-light" data-view="vault">Open your Idea Vault <span>↗</span></button><div class="banner-decoration">✳</div></div>
+          <footer class="footer"><span>© 2026 BOIN. Made for curious minds.</span><span>Creative tools for your everyday.</span></footer>
+        </section>
+
+        <section class="view" id="view-all-tools"><div class="page-heading"><div class="eyebrow muted-eyebrow">THE TOOLBOX</div><h1>Explore tools<span>.</span></h1><p>Find the right little tool for your next big idea.</p></div><div class="library-search"><span>⌕</span><input id="librarySearch" type="search" placeholder="Search by tool, task, or category..." aria-label="Search all tools" /><span class="search-hint">24 tools</span></div><div class="category-row library-categories" id="libraryCategories"></div><div class="tool-grid" id="libraryGrid"></div></section>
+
+        <section class="view" id="view-favorites"><div class="page-heading"><div class="eyebrow muted-eyebrow">SAVED FOR LATER</div><h1>Your favourites<span>.</span></h1><p>Your go-to tools, all in one spot.</p></div><div id="favoriteTools" class="tool-grid"></div><div class="subsection-title"><h2>Saved content</h2><span class="subtle">Items you’ve bookmarked in your workspace</span></div><div id="favoriteContent" class="saved-list"></div></section>
+
+        <section class="view" id="view-vault"><div class="page-heading page-heading-row"><div><div class="eyebrow muted-eyebrow">YOUR IDEAS, KEPT SAFE</div><h1>Idea Vault<span>.</span></h1><p>Keep your best thoughts somewhere you can find them.</p></div><button class="btn btn-primary" id="newVaultItem">＋ Add a note</button></div><div class="library-search"><span>⌕</span><input id="vaultSearch" type="search" placeholder="Search your saved ideas..." aria-label="Search saved ideas" /><span class="search-hint" id="vaultCount">0 items</span></div><div id="vaultList" class="vault-grid"></div></section>
+
+        <section class="view" id="view-calendar"><div class="page-heading page-heading-row"><div><div class="eyebrow muted-eyebrow">PLAN WITH PURPOSE</div><h1>Content calendar<span>.</span></h1><p>A lighter way to plan what you’ll share this week.</p></div><button class="btn btn-primary" id="addCalendarEntry">＋ Add content</button></div><div class="calendar-toolbar"><button class="icon-btn" id="prevWeek" aria-label="Previous week">←</button><strong id="weekLabel">This week</strong><button class="icon-btn" id="nextWeek" aria-label="Next week">→</button><span class="toolbar-spacer"></span><button class="btn btn-secondary" id="exportCalendar">↓ Export plan</button></div><div class="week-grid" id="weekGrid"></div></section>
+
+        <section class="view" id="view-checklist"><div class="page-heading page-heading-row"><div><div class="eyebrow muted-eyebrow">ONE THING AT A TIME</div><h1>Project checklist<span>.</span></h1><p>Turn the big picture into a few doable next steps.</p></div><button class="btn btn-secondary" id="exportChecklist">↓ Export</button></div><div class="checklist-panel"><form id="taskForm" class="task-form"><input id="taskInput" maxlength="180" placeholder="Add a task to your list..." aria-label="New task" required /><button class="btn btn-primary" type="submit">＋ Add task</button></form><div class="task-progress"><div><strong id="taskProgressText">0 of 0 completed</strong><span id="taskProgressPercent">0%</span></div><div class="progress-track"><span id="taskProgressBar"></span></div></div><div id="taskList" class="task-list"></div></div></section>
+      </div>
+    </main>
+  </div>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation"><button class="active" data-view="home"><span>⌂</span>Home</button><button data-view="all-tools"><span>✣</span>Tools</button><button data-view="vault"><span>▤</span>Vault</button><button data-view="calendar"><span>▦</span>Plan</button><button data-view="favorites"><span>♡</span>Saved</button></nav>
+
+  <div class="modal-backdrop" id="toolModal" aria-hidden="true"><section class="tool-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><header class="modal-header"><div class="modal-title-wrap"><span class="modal-tool-icon" id="modalIcon">✦</span><div><div class="eyebrow muted-eyebrow" id="modalCategory">CREATIVE TOOL</div><h2 id="modalTitle">Tool name</h2></div></div><button class="icon-btn close-modal" id="closeToolModal" aria-label="Close tool">×</button></header><div class="modal-body" id="modalBody"></div><footer class="modal-footer"><span class="demo-label" id="aiStatusLabel"><span class="status-dot"></span> Checking AI connection…</span><button class="btn btn-secondary" id="saveToolOutput">♡ Save output</button></footer></section></div>
+
+  <div class="modal-backdrop" id="genericModal" aria-hidden="true"><section class="small-modal" role="dialog" aria-modal="true" aria-labelledby="genericTitle"><header class="modal-header"><div><div class="eyebrow muted-eyebrow">YOUR WORKSPACE</div><h2 id="genericTitle">Add something</h2></div><button class="icon-btn" id="closeGenericModal" aria-label="Close">×</button></header><div id="genericBody" class="modal-body"></div></section></div>
+
+  <div class="command-backdrop" id="commandBackdrop" aria-hidden="true"><section class="command-box" role="dialog" aria-modal="true" aria-label="Search BOIN"><div class="command-input-row"><span>⌕</span><input id="commandInput" placeholder="Search tools and pages..." aria-label="Search BOIN" /><kbd>ESC</kbd></div><div id="commandResults" class="command-results"></div><div class="command-foot"><span>↑↓ to navigate</span><span>Enter to open</span></div></section></div>
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="cloud.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
